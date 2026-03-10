@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/30b6aca2c6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  
+  <body>
+    <header>
+        <nav>
+            <div class="container nav__container">
+                <div class="logo">
+                    <img src="./assets/BMP_logo.svg" class="logo__img">
+                </div>
+                <div class="nav__title">Movie Posters Database</div>
+                <ul class="nav__links">
+                    <li><a class="nav__link" href="#">Home</a></li>
+                    <li><a class="nav__link" href="#">About Us</a></li>
+                    <li><a class="nav__link nav__link--primary" href="#">Find Poster</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="search">
+        <div class="container">
+            <div class="row">
+                <h1 class="search__title">Find your next Movie</h1>
+                <div class="search__bar">
+                    <input type="text" class="search__input" placeholder="Your newest obsession starts here..."/>
+                    <button class="search__btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <select id="filter" class="search__filter">
+                    <option value="" disabled selected>Filter</option>
+                    <option value="A-Z">Title: A to Z</option>
+                    <option value="Z-A">Title: Z to A</option>
+                    <option value="OLD-TO-NEW">Release Year: Old to New</option>
+                    <option value="NEW-TO-OLD">Release Year: New to Old</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section id="movies">
+        <div class="container">
+            <div class="row">
+                <div class="movies__list">
+                    <div class="movie">
+                        <figure class="poster__img--wrapper">
+                            <img class="poster__img" src="https://m.media-amazon.com/images/M/MV5BNWE5MGI3MDctMmU5Ni00YzI2LWEzMTQtZGIyZDA5MzQzNDBhXkEyXkFqcGc@._V1_SX300.jpg">
+                        </figure>
+                        <div class="movie__title">Movie Title</div>
+                        <div class="movie__year">Released in: 2005</div>
+                        <div class="movie__director">Directed by: Michael Bay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row row__column">
+                <a href="#">
+                    <figure class="footer__logo">
+                        <img src="./assets/BMP_logo.svg" class="footer__img">
+                    </figure>
+                </a>
+                <div class="footer__list">
+                    <a href="#" class="footer__link">Locations</a>
+                    <a href="#" class="footer__link">Contact Us</a>
+                    <a href="#" class="footer__link">FAQs</a>
+                </div>
+                <div class="footer__copyright">
+                    Copyright © BMP 2026
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  </body>
+  <script src="./app.js"></script>
+</html>
