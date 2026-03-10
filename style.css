@@ -189,13 +189,9 @@ nav {
     border-bottom: 1px solid #242424;
 }
 
-.movie__year,
-.movie__director {
+.movie__year {
+    text-align: center;
     font-size: 14px;
-}
-
-.movie__director {
-    text-align: end;
 }
 
 /* FOOTER */
