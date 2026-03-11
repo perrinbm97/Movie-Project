@@ -180,6 +180,10 @@ nav {
     line-height: 32px;
 }
 
+.highlight {
+    color: gold;
+}
+
 /* MOVIES */
 
 #movies .container {
@@ -200,23 +204,22 @@ nav {
     padding: 16px;
 }
 
-.poster__img {
-    display: flex;
-    overflow: hidden;
+.poster__img--wrapper {
     margin-bottom: 8px;
-    border-radius: 2px;
+}
+
+.poster__img {
+    max-height: 500px;
+    aspect-ratio: 2 / 3;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
     transition: all 300ms ease;
 }
 
 .poster__img:hover {
     transform: translate(-5px, -5px);
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.8);
-}
-
-.poster__img {
-    max-height: 400px;
-    object-fit: contain;
-    object-position: center;
 }
 
 .movie__title {
@@ -228,8 +231,14 @@ nav {
 }
 
 .movie__year {
+    margin-top: 2px;
     text-align: center;
     font-size: 14px;
+}
+
+.empty-state {
+    margin: 0 auto;
+    padding: 160px 0;    
 }
 
 /* FOOTER */
