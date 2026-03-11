@@ -3,7 +3,10 @@
 const moviesListEl = document.querySelector(".movies__list");
 const searchInput = document.querySelector(".search__input");
 const searchButton = document.querySelector(".search__btn");
+
+
 searchButton.addEventListener("click", searchMovies);
+searchInput.addEventListener("keydown", typeInput);
 
 showEmptyState();
 
@@ -22,9 +25,9 @@ async function renderMovies(filter) {
       return b.Title.localeCompare(a.Title);
     });
   } else if (filter === "OLD-TO-NEW") {
-    snippedData.sort((a, b) => a.Year - b.Year);
+    snippedData.sort((a, b) => a.Year.slice(0, 4) - b.Year.slice(0, 4));
   } else if (filter === "NEW-TO-OLD") {
-    snippedData.sort((a, b) => b.Year - a.Year);
+    snippedData.sort((a, b) => b.Year.slice(0, 4) - a.Year.slice(0, 4));
   }
   moviesListEl.innerHTML = snippedData
     .map((movie) => moviesHTML(movie))
@@ -38,7 +41,7 @@ function moviesHTML(movie) {
             <img class="poster__img" src="${movie.Poster}">
         </figure>
         <div class="movie__title">${movie.Title}</div>
-        <div class="movie__year">Released in: ${movie.Year}</div>
+        <div class="movie__year">Released in: ${movie.Year.slice(0, 4)}</div>
     </div>
     `;
 }
@@ -49,6 +52,12 @@ function showEmptyState() {
             <h2>Let's get started by searching above</h2>
         </div>
     `;
+}
+
+function typeInput(event) {
+  if (event.key === 'Enter') {
+    searchButton.click();
+  }
 }
 
 function filterMovies(event) {
