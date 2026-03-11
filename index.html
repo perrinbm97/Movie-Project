@@ -20,8 +20,8 @@
                 </div>
                 <div class="nav__title">Movie Posters Database</div>
                 <ul class="nav__links">
-                    <li><a class="nav__link" href="#">Home</a></li>
-                    <li><a class="nav__link" href="#">About Us</a></li>
+                    <li><a class="nav__link link__hover-effect link__hover-effect--gold" href="#">Home</a></li>
+                    <li><a class="nav__link link__hover-effect link__hover-effect--gold" href="#">About Us</a></li>
                     <li><a class="nav__link nav__link--primary" href="#">Find Poster</a></li>
                 </ul>
             </div>
@@ -38,7 +38,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
-                <select id="filter" class="search__filter">
+                <select id="filter" class="search__filter" onchange="filterMovies(event)">
                     <option value="" disabled selected>Filter</option>
                     <option value="A-Z">Title: A to Z</option>
                     <option value="Z-A">Title: Z to A</option>
@@ -68,15 +68,15 @@
     <footer>
         <div class="container">
             <div class="row row__column">
-                <a href="#">
+                <a href="#top">
                     <figure class="footer__logo">
                         <img src="./assets/BMP_logo.svg" class="footer__img">
                     </figure>
                 </a>
                 <div class="footer__list">
-                    <a href="#" class="footer__link">Locations</a>
-                    <a href="#" class="footer__link">Contact Us</a>
-                    <a href="#" class="footer__link">FAQs</a>
+                    <a href="" class="footer__link link__hover-effect link__hover-effect--white">Locations</a>
+                    <a href="" class="footer__link link__hover-effect link__hover-effect--white">Contact Us</a>
+                    <a href="" class="footer__link link__hover-effect link__hover-effect--white">FAQs</a>
                 </div>
                 <div class="footer__copyright">
                     Copyright © BMP 2026

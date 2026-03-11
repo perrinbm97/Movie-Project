@@ -1,27 +1,46 @@
-// API: "https://www.omdbapi.com/?apikey=e8172c21&"
+// API: "https://www.omdbapi.com/?apikey=e8172c21&s=fast"
 
-const moviesListEl = document.querySelector(".movies-list");
+const moviesListEl = document.querySelector(".movies__list");
 
-async function main() {
-  const movies = await fetch(
-    "https://www.omdbapi.com/?apikey=e8172c21&s=fast");
+async function renderMovies(filter) {
+  const movies = await fetch("https://www.omdbapi.com/?apikey=e8172c21&s=red");
   const moviesData = await movies.json();
+  const snippedData = moviesData.Search.slice(0, 8);
 
-  console.log(moviesData);
-
-//   moviesListEl.innerHTML = moviesData.map((movie) => moviesHTML(movie)).join("");
+if (filter === "A-Z") {
+    snippedData.sort((a, b) => {
+        return a.Title.localeCompare(b.Title);
+    });
+}
+else if (filter === "Z-A") {
+    snippedData.sort((a, b) => {
+        return b.Title.localeCompare(a.Title);
+    });
+}
+else if (filter === "OLD-TO-NEW") {
+    snippedData.sort((a, b) => a.Year - b.Year);
+}
+else if (filter === "NEW-TO-OLD") {
+    snippedData.sort((a, b) => b.Year - a.Year);
+}
+  moviesListEl.innerHTML = snippedData.map((movie) =>
+    moviesHTML(movie)).join("");
 }
 
-main();
+renderMovies();
 
 function moviesHTML(movie) {
   return `
     <div class="movie">
         <figure class="poster__img--wrapper">
-            <img class="poster__img" src="https://m.media-amazon.com/images/M/MV5BNWE5MGI3MDctMmU5Ni00YzI2LWEzMTQtZGIyZDA5MzQzNDBhXkEyXkFqcGc@._V1_SX300.jpg">
+            <img class="poster__img" src="${movie.Poster}">
         </figure>
-        <div class="movie__title">Movie Title</div>
-        <div class="movie__year">Released in: 2005</div>
+        <div class="movie__title">${movie.Title}</div>
+        <div class="movie__year">Released in: ${movie.Year}</div>
     </div>
     `;
+}
+
+function filterMovies(event) {
+    renderMovies(event.target.value);
 }
